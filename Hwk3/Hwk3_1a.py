@@ -1,5 +1,5 @@
 import numpy as np
-from math import sqrt
+from math import *
 from scipy.optimize import fsolve
 import matplotlib.pyplot as plt
 
@@ -10,6 +10,8 @@ def pot(X, Y, n, m1, m2, x_m1, x_m2):
 	U = (n**2)*(X**2 + Y**2)/2 + G*m1/np.sqrt((X - x_m1)**2 + (Y**2)) + G*m2/np.sqrt((X - x_m2)**2 + (Y**2))
 	return U
 
+
+#1a
 
 m_sun = 1.0
 m1 = 1.0*m_sun
@@ -55,9 +57,6 @@ y_L5 = -y_L4
 print 'x_L5,y_L5', x_L5, y_L5
 
 
-
-
-
 #Draw contours
 x = np.linspace(-2.0, 2.0, 1000)
 y = np.linspace(-2.0, 2.0, 1000)
@@ -68,11 +67,14 @@ U_L2 = pot(x_L2, 0, n , m1, m2, x_m1, x_m2)
 U_L3 = pot(x_L3, 0, n , m1, m2, x_m1, x_m2)
 U_L4 = pot(x_L4, y_L4, n , m1, m2, x_m1, x_m2)
 U_L5 = pot(x_L5, y_L5, n , m1, m2, x_m1, x_m2)
-print U_L1, U_L2, U_L3, U_L4
+print 'U_L1, U_L2, U_L3, U_L4:', U_L1, U_L2, U_L3, U_L4
 
 plt.contour(X, Y, U, levels=np.sort([U_L5+0.002, U_L4+0.001, U_L3, U_L2, U_L1]))
 plt.plot([x_m1, x_m2], [0,0], '.')
 plt.plot([0], [0], '+')
 plt.axis('image')
 plt.axis([-1.5, 1.5, -1.5, 1.5])
-plt.show()
+#plt.show()
+
+
+
